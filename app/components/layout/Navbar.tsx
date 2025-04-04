@@ -16,7 +16,7 @@ export default function Navbar({ isFloating = false, bgClass = "bg-[rgba(171,171
       >
         <div className="max-w-7xl mx-auto px-0 sm:px-6 md:px-0 flex justify-between items-center w-full">
           {/* Logo */}
-          <div className={`flex items-center px-3 sm:px-5 py-2 sm:py-3 ${bgClass} rounded-full`}>
+          <div className="flex items-center px-3 sm:px-5 py-2 sm:py-3 bg-[rgba(171,171,171,0.15)] backdrop-blur-md rounded-full">
             <span className="font-bold text-lg sm:text-xl">AiAutomated</span>
           </div>
 
@@ -26,7 +26,7 @@ export default function Navbar({ isFloating = false, bgClass = "bg-[rgba(171,171
               Buy now
             </button>
             <button 
-              className={`p-2 rounded-full ${bgClass}`}
+              className="p-2 rounded-full bg-[rgba(171,171,171,0.15)] backdrop-blur-md"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -43,7 +43,7 @@ export default function Navbar({ isFloating = false, bgClass = "bg-[rgba(171,171
           {/* Desktop Navigation */}
           <nav className="hidden sm:flex items-center">
             <div
-              className={`flex gap-4 md:gap-6 px-4 sm:px-6 py-1 ${bgClass} rounded-full text-sm sm:text-base md:text-lg items-center`}
+              className="flex gap-4 md:gap-6 px-4 sm:px-6 py-1 bg-[rgba(171,171,171,0.15)] backdrop-blur-md rounded-full text-sm sm:text-base md:text-lg items-center"
               style={{
                 fontFamily: 'Inter, "Inter Placeholder", sans-serif',
               }}
@@ -69,7 +69,7 @@ export default function Navbar({ isFloating = false, bgClass = "bg-[rgba(171,171
       
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-[rgba(171,171,171,0.15)] mx-4 rounded-xl mb-4">
+        <div className="sm:hidden bg-[rgba(171,171,171,0.15)] backdrop-blur-md mx-4 rounded-xl mb-4">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {["Services", "Pricing", "Case studies", "Team", "FAQ"].map(
               (item) => (

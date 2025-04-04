@@ -52,6 +52,8 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       <div className="w-full max-w-7xl mt-16">
         <WorkflowSection />
       </div>
+      
+      {/* How it works section */}
     </div>
   );
 }
