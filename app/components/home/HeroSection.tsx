@@ -24,7 +24,7 @@ export default function HeroSection() {
 
       <p className="text-sm sm:text-base font-thin max-w-xl mb-8 sm:mb-12 md:mb-16">
         We'll pump your company with AI. As a leading AI automation
-        agency with 99 years of experience, we deliver top results.
+        agency with 99 years of questionable experience, we deliver top results.
       </p>
 
       <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-8">

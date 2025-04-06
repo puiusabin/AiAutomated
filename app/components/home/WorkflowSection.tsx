@@ -1,14 +1,14 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValue } from "motion/react";
+import React, { useRef, useState, useEffect } from "react";
 
 export default function WorkflowSection() {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   
   return (
     <section ref={sectionRef} className="px-4 sm:px-8 md:px-12 py-16 md:py-24 bg-black">
       <div className="max-w-5xl mx-auto">
         <div>
-          <h2 className="text-4xl sm:text-5xl md:text-5xl font-bold leading-tight tracking-tight mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl font-semibold leading-tight tracking-tight mb-16">
             <AnimatedTextLine 
               text="Enhance your workflows to" 
               sectionRef={sectionRef} 
@@ -86,7 +86,7 @@ export default function WorkflowSection() {
 
 interface AnimatedTextLineProps {
   text: string;
-  sectionRef: React.RefObject<HTMLElement>;
+  sectionRef: React.RefObject<HTMLElement | null>;
   lineIndex: number;
   isGray?: boolean;
 }
@@ -95,11 +95,35 @@ function AnimatedTextLine({ text, sectionRef, lineIndex, isGray = false }: Anima
   const lineRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start center", "end center"] // Changed offset to make animation happen when element is in view
+    offset: ["start -10%", "center -30%"]
   });
   
-  // Adjusted base offset to ensure animation happens when visible
-  const baseOffset = 0.1 + (lineIndex * 0.05);
+  // Base offset calculation remains the same
+  const baseOffset = 0.3 + (lineIndex * 0.06);
+  
+  // Add useEffect to handle initial visibility check
+  const [initiallyVisible, setInitiallyVisible] = useState(false);
+  
+  useEffect(() => {
+    // Check if element is already in viewport on page load/refresh
+    if (sectionRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          setInitiallyVisible(entry.isIntersecting);
+        },
+        { threshold: 0.1 }
+      );
+      
+      observer.observe(sectionRef.current);
+      
+      return () => {
+        if (sectionRef.current) {
+          observer.unobserve(sectionRef.current);
+        }
+      };
+    }
+  }, []);
   
   return (
     <span
@@ -114,6 +138,7 @@ function AnimatedTextLine({ text, sectionRef, lineIndex, isGray = false }: Anima
           charIndex={index} 
           totalChars={text.length}
           baseOffset={baseOffset}
+          initiallyVisible={initiallyVisible}
         />
       ))}
     </span>
@@ -126,16 +151,40 @@ interface AnimatedCharacterProps {
   charIndex: number;
   totalChars: number;
   baseOffset: number;
+  initiallyVisible: boolean;
 }
 
-function AnimatedCharacter({ char, scrollYProgress, charIndex, totalChars, baseOffset }: AnimatedCharacterProps) {
-  // Reduced the character offset multiplier to ensure all characters animate within the scroll range
-  const charOffset = baseOffset + (charIndex / totalChars * 0.05);
+function AnimatedCharacter({ char, scrollYProgress, charIndex, totalChars, baseOffset, initiallyVisible }: AnimatedCharacterProps) {
+  const charOffset = baseOffset + (charIndex / totalChars * 0.02);
   
-  // Transform scroll progress to color - using a step function for instant pop
+  // Create a derived motion value that accounts for initial visibility
+  const adjustedProgress = useMotionValue(0);
+  
+  useEffect(() => {
+    // If initially visible, set the progress based on current scroll position
+    if (initiallyVisible) {
+      const unsubscribe = scrollYProgress.onChange((value: number) => {
+        adjustedProgress.set(Math.max(value, 0));
+      });
+      
+      // Trigger immediate update
+      adjustedProgress.set(scrollYProgress.get());
+      
+      return unsubscribe;
+    } else {
+      // Normal behavior for elements not initially visible
+      const unsubscribe = scrollYProgress.onChange((value: number) => {
+        adjustedProgress.set(value);
+      });
+      
+      return unsubscribe;
+    }
+  }, [initiallyVisible, scrollYProgress]);
+  
+  // Use the adjusted progress for the color transform
   const color = useTransform(
-    scrollYProgress,
-    [charOffset, charOffset + 0.001], 
+    adjustedProgress,
+    [charOffset, charOffset + 0.0005], 
     ["rgba(255, 255, 255, 0.4)", "rgba(255, 255, 255, 1)"]
   );
   
