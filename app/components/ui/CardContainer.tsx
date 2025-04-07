@@ -6,10 +6,10 @@ interface CardContainerProps {
 
 export default function CardContainer({ children }: CardContainerProps) {
   return (
-    <div className="relative w-full mx-auto">
+    <div className="relative mx-auto w-full">
       {/* Shadow layers for stacked effect */}
       <div
-        className="absolute bottom-[-24px] h-32 w-full overflow-hidden z-0"
+        className="absolute bottom-[-24px] z-0 h-32 w-full overflow-hidden"
         aria-hidden="true"
       >
         {/* Shadow layers */}
@@ -41,7 +41,7 @@ export default function CardContainer({ children }: CardContainerProps) {
 
       {/* Main card */}
       <div
-        className="relative rounded-3xl overflow-hidden flex flex-col w-full"
+        className="relative flex w-full flex-col overflow-hidden rounded-3xl"
         style={{
           background:
             "linear-gradient(180deg, #0f1112 51%, rgba(172,179,182,1) 100%)",

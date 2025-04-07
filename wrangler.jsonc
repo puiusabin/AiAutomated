@@ -5,6 +5,6 @@
   "main": "./workers/app.ts",
   "assets": {},
   "vars": {
-    "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
-  }
+    "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare",
+  },
 }

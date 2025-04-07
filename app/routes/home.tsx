@@ -40,25 +40,25 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   }, [scrolled]);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-start py-4 sm:py-8 px-4 sm:px-8 font-['Plus_Jakarta_Sans']">
+    <div className="flex min-h-screen flex-col items-center justify-start bg-black px-4 py-4 font-['Plus_Jakarta_Sans'] text-white sm:px-8 sm:py-8">
       {/* Floating Navbar */}
       <Navbar isFloating={true} bgClass="" />
 
-      <div className="w-full max-w-7xl mt-16">
+      <div className="mt-16 w-full max-w-7xl">
         <CardContainer>
           {/* Hero section */}
-          <main className="px-4 sm:px-8 md:px-12 pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 md:pb-24">
+          <main className="px-4 pt-8 pb-12 sm:px-8 sm:pt-12 sm:pb-16 md:px-12 md:pt-16 md:pb-24">
             <HeroSection />
           </main>
         </CardContainer>
       </div>
 
       {/* Workflow section */}
-      <div className="w-full max-w-7xl mt-16">
+      <div className="mt-16 w-full max-w-7xl">
         <WorkflowSection />
       </div>
       {/* How it works section */}
-      <div className="w-full max-w-7xl mt-16">
+      <div className="mt-16 w-full max-w-7xl">
         <HowItWorksSection />
       </div>
       <svg
