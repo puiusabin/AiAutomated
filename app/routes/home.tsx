@@ -40,89 +40,30 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   }, [scrolled]);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-start bg-black px-4 py-4 font-['Plus_Jakarta_Sans'] text-white sm:px-8 sm:py-8">
+    // Main wrapper with 24px padding
+    <div className="flex min-h-screen flex-col items-center justify-start bg-black px-6 py-4 font-['Plus_Jakarta_Sans'] text-white sm:py-8">
       {/* Floating Navbar */}
       <Navbar isFloating={true} bgClass="" />
 
+      {/* Hero section */}
       <div className="mt-16 w-full max-w-7xl">
         <CardContainer>
-          {/* Hero section */}
           <main className="px-4 pt-8 pb-12 sm:px-8 sm:pt-12 sm:pb-16 md:px-12 md:pt-16 md:pb-24">
             <HeroSection />
           </main>
         </CardContainer>
       </div>
 
-      {/* Workflow section */}
-      <div className="mt-16 w-full max-w-7xl">
-        <WorkflowSection />
+      {/* Additional wrapper with 56px padding for all sections after hero */}
+      <div className="mt-16 w-full px-14">
+        <div className="mx-auto max-w-7xl">
+          {/* Workflow section */}
+          <WorkflowSection />
+
+          {/* How it works section */}
+          <HowItWorksSection />
+        </div>
       </div>
-      {/* How it works section */}
-      <div className="mt-16 w-full max-w-7xl">
-        <HowItWorksSection />
-      </div>
-      <svg
-        width="200"
-        height="200"
-        viewBox="0 0 200 200"
-        fill="none"
-        id="svg-1800298055_1379"
-      >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M100.2 190L100.2 10L101 10L101 190H100.2Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M131.004 184.708L69.4406 15.5629L70.1923 15.2892L131.756 184.434L131.004 184.708Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M158.14 169.198L42.4384 31.3102L43.0512 30.796L158.753 168.684L158.14 169.198Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M178.336 145.344L22.4514 55.344L22.8514 54.6512L178.736 144.651L178.336 145.344Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M189.154 116.02L11.8888 84.7629L12.0278 83.975L189.293 115.232L189.154 116.02Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M189.291 84.7637L12.0256 116.02L11.8867 115.233L189.152 83.9759L189.291 84.7637Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M178.729 55.3465L22.8445 145.347L22.4445 144.654L178.329 54.6537L178.729 55.3465Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M158.744 31.3162L43.042 169.204L42.4292 168.69L158.131 30.802L158.744 31.3162Z"
-          fill="white"
-        ></path>
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M131.744 15.5696L70.1806 184.714L69.4288 184.441L130.992 15.2959L131.744 15.5696Z"
-          fill="white"
-        ></path>
-      </svg>
     </div>
   );
 }
