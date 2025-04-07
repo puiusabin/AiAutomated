@@ -4,6 +4,7 @@ import Navbar from "../components/layout/Navbar";
 import CardContainer from "../components/ui/CardContainer";
 import HeroSection from "../components/home/HeroSection";
 import WorkflowSection from "../components/home/WorkflowSection";
+import HowItWorksSection from "~/components/home/HowItWorksSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -56,8 +57,10 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       <div className="w-full max-w-7xl mt-16">
         <WorkflowSection />
       </div>
-
       {/* How it works section */}
+      <div className="w-full max-w-7xl mt-16">
+        <HowItWorksSection />
+      </div>
       <svg
         width="200"
         height="200"
