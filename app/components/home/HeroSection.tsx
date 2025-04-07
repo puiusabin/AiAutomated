@@ -1,6 +1,7 @@
 export default function HeroSection() {
   return (
-    <div className="mx-auto max-w-3xl sm:mx-0">
+    <section className="px-4 sm:px-8 md:px-12">
+      <div className="relative mx-auto w-full max-w-5xl">
       <h1
         className="mb-8 text-5xl leading-tight font-extrabold tracking-tight sm:mb-12 sm:text-6xl sm:leading-none md:mb-16 md:text-7xl lg:text-8xl"
         style={{
@@ -71,6 +72,7 @@ export default function HeroSection() {
           </a>
         </div>
       </div>
-    </div>
+      </div>
+    </section>
   );
 }

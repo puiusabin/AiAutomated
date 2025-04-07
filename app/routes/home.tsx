@@ -48,7 +48,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       {/* Hero section */}
       <div className="mt-16 w-full max-w-7xl">
         <CardContainer>
-          <main className="px-4 pt-8 pb-12 sm:px-8 sm:pt-12 sm:pb-16 md:px-12 md:pt-16 md:pb-24">
+          <main className="px-14 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-24">
             <HeroSection />
           </main>
         </CardContainer>

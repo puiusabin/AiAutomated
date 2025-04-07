@@ -21,28 +21,25 @@ export default function StepCard({ step }: StepCardProps) {
           Step {step.number}
         </div>
 
-        {step.hasImage ? (
-          <>
-            <div className="mb-6 flex items-center justify-center py-8">
-              <div className="h-[200px] w-[200px]">
-                <SpinningStarburst
-                  width={200}
-                  height={200}
-                  color={step.textColor === "text-black" ? "black" : "white"}
-                />
-              </div>
+        {step.hasImage && (
+          <div className="mb-6 flex items-center justify-center py-8">
+            <div className="h-[200px] w-[200px]">
+              <SpinningStarburst
+                width={200}
+                height={200}
+                color={step.textColor === "text-black" ? "black" : "white"}
+              />
             </div>
-            <h3 className="text-2xl font-semibold">{step.title}</h3>
-          </>
-        ) : (
-          <h3 className="text-2xl font-semibold">{step.title}</h3>
+          </div>
         )}
       </div>
 
       {/* Bottom div with content */}
       <div className="mt-6">
+        <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
+        
         {step.description && (
-          <p className="text-base opacity-80">{step.description}</p>
+          <p className="font-thin">{step.description}</p>
         )}
 
         {step.cta && (

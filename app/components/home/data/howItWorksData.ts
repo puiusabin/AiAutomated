@@ -15,7 +15,6 @@ export const steps: StepData[] = [
     title: "Subscribe",
     description:
       "If our services is a good fit, start your subscription. Access your project board, and we'll reach out the same day for a introductory discussion.",
-    cta: { text: "Plans & Pricing", href: "#pricing" },
     bgColor: "bg-white",
     textColor: "text-black",
     borderColor: "border-black",
