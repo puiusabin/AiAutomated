@@ -5,6 +5,7 @@ import CardContainer from "../components/ui/CardContainer";
 import HeroSection from "../components/home/HeroSection";
 import WorkflowSection from "../components/home/WorkflowSection";
 import HowItWorksSection from "~/components/home/HowItWorksSection";
+import ServicesSection from "~/components/home/ServicesSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -54,7 +55,6 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         </CardContainer>
       </div>
 
-      {/* Additional wrapper with 56px padding for all sections after hero */}
       <div className="mt-16 w-full px-14">
         <div className="mx-auto max-w-7xl">
           {/* Workflow section */}
@@ -62,6 +62,9 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 
           {/* How it works section */}
           <HowItWorksSection />
+
+          {/* Services section */}
+          <ServicesSection />
         </div>
       </div>
     </div>

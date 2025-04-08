@@ -36,11 +36,9 @@ export default function StepCard({ step }: StepCardProps) {
 
       {/* Bottom div with content */}
       <div className="mt-6">
-        <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
-        
-        {step.description && (
-          <p className="font-thin">{step.description}</p>
-        )}
+        <h3 className="mb-4 text-2xl font-semibold">{step.title}</h3>
+
+        {step.description && <p className="font-thin">{step.description}</p>}
 
         {step.cta && (
           <a href={step.cta.href} className="mt-4 inline-flex items-center">
