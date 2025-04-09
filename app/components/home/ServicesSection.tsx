@@ -55,7 +55,7 @@ export default function ServicesSection() {
               className="mx-auto flex h-[370px] w-full max-w-[320px] flex-col pt-6"
             >
               <div className="mb-6">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-700 text-gray-500">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/50 text-white/50">
                   {service.id}
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default function ServicesSection() {
                 {service.title}
               </h3>
 
-              <p className="text-sm leading-relaxed text-gray-400">
+              <p className="text-sm leading-relaxed font-thin text-white/80">
                 {service.description}
               </p>
             </div>

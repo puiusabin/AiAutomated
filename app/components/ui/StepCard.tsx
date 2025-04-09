@@ -38,7 +38,7 @@ export default function StepCard({ step }: StepCardProps) {
       <div className="mt-6">
         <h3 className="mb-4 text-2xl font-semibold">{step.title}</h3>
 
-        {step.description && <p className="font-thin">{step.description}</p>}
+        {step.description && <p className="font-thin text-white/80">{step.description}</p>}
 
         {step.cta && (
           <a href={step.cta.href} className="mt-4 inline-flex items-center">
