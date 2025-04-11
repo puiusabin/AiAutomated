@@ -58,10 +58,10 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       <div className="mt-16 w-full px-14">
         <div className="mx-auto max-w-7xl">
           {/* Workflow section */}
-          <WorkflowSection />
+          {/* <WorkflowSection /> */}
 
           {/* How it works section */}
-          <HowItWorksSection />
+          {/* <HowItWorksSection /> */}
 
           {/* Services section */}
           <ServicesSection />
